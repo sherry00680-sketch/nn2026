@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>重要詢問 ✨</title>
+
+    <!-- ========================================== -->
+    <!-- 這裡就是完美的 LINE 防劇透、偽裝心理測驗標籤 -->
+    <!-- ========================================== -->
+    <meta property="og:title" content="✨ 2026 潛意識心理測驗" />
+    <meta property="og:description" content="點擊連結開始測試，探討你內心深處最真實的渴望與性格特質..." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518133683791-0b9de5a055f0?w=500" />
+    <meta property="og:type" content="website" />
+    <!-- ========================================== -->
+
     <style>
         body {
             display: flex;
@@ -23,6 +33,7 @@
             margin-bottom: 50px;
             text-align: center;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            line-height: 1.4;
         }
 
         .container {
@@ -68,36 +79,35 @@
         #noBtn {
             background-color: #b2bec3;
             color: white;
-            position: absolute; /* 讓它可以滿螢幕亂跑 */
-            left: 120px; /* 初始位置在「要要要」右邊 */
+            position: absolute; 
+            left: 120px; 
             white-space: nowrap;
+            touch-action: none; /* 防止手機滑動干擾 */
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>請問這個禮拜日
-            有沒有空跟我約會呢？ 💓</h1>
+        <h1>請問這個禮拜日<br>有沒有空跟我約會呢？ 💓</h1>
         
         <div class="btn-group">
             <button id="yesBtn" onclick="agree()">要要要 ( 💗 )</button>
-            <button id="noBtn" onmouseover="escape()" onclick="escape()">不要 ( ❌ )</button>
+            <button id="noBtn" onmouseover="escape()" onclick="escape()" ontouchstart="escape()">不要 ( ❌ )</button>
         </div>
     </div>
 
     <script>
-        // 當滑鼠移到「不要」上面，或是手機觸控到時，立刻觸發逃跑
         function escape() {
             const noBtn = document.getElementById('noBtn');
             
             // 計算視窗可容納的寬高，扣除按鈕本身長寬避免出界
-            const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-            const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+            const maxX = window.innerWidth - noBtn.offsetWidth - 25;
+            const maxY = window.innerHeight - noBtn.offsetHeight - 25;
             
             // 隨機產生新的座標
-            const randomX = Math.max(10, Math.floor(Math.random() * maxX));
-            const randomY = Math.max(10, Math.floor(Math.random() * maxY));
+            const randomX = Math.max(25, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(25, Math.floor(Math.random() * maxY));
             
             // 將按鈕改為相對於整個視窗絕對定位
             noBtn.style.position = 'fixed';
@@ -105,7 +115,6 @@
             noBtn.style.top = randomY + 'px';
         }
 
-        // 點擊「要要要」跳出的成功視窗
         function agree() {
             alert("可以不要奧嘟嘟了    期待見我就可以 🥰");
         }
