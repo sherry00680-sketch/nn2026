@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重要詢問 ✨</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Microsoft JhengHei", sans-serif;
+            background-color: #ffe6e6;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #d63031;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 40px;
+            position: relative;
+            height: 60px;
+            align-items: center;
+        }
+
+        button {
+            padding: 12px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #yesBtn {
+            background-color: #ff7675;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            background-color: #d63031;
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #b2bec3;
+            color: white;
+            position: absolute; /* 讓它可以滿螢幕亂跑 */
+            left: 120px; /* 初始位置在「好呀」右邊 */
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>請問這禮拜日，有沒有空跟我約會呢？ 🌹</h1>
+        
+        <div class="btn-group">
+            <button id="yesBtn" onclick="agree()">好呀 ( 👑 )</button>
+            <button id="noBtn" onmouseover="escape()" onclick="escape()">不要 ( ❌ )</button>
+        </div>
+    </div>
+
+    <script>
+        // 當滑鼠移到「不要」上面，或是手機觸控到時，立刻觸發逃跑
+        function escape() {
+            const noBtn = document.getElementById('noBtn');
+            
+            // 計算視窗可容納的寬高，扣除按鈕本身長寬避免出界
+            const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+            const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+            
+            // 隨機產生新的座標
+            const randomX = Math.max(10, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(10, Math.floor(Math.random() * maxY));
+            
+            // 將按鈕改為相對於整個視窗絕對定位
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        // 點擊「好呀」跳出的成功視窗
+        function agree() {
+            alert("太棒了！那就這禮拜日不見不散囉 🥰");
+        }
+    </script>
+
+</body>
+</html>
