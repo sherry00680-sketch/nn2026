@@ -69,7 +69,7 @@
             background-color: #b2bec3;
             color: white;
             position: absolute; /* 讓它可以滿螢幕亂跑 */
-            left: 120px; /* 初始位置在「好呀」右邊 */
+            left: 120px; /* 初始位置在「要要要」右邊 */
             white-space: nowrap;
         }
     </style>
@@ -77,10 +77,10 @@
 <body>
 
     <div class="container">
-        <h1>請問這禮拜日，有沒有空跟我約會呢？ 🌹</h1>
+        <h1>請問這禮拜日，有沒有空跟我約會呢？ 💓</h1>
         
         <div class="btn-group">
-            <button id="yesBtn" onclick="agree()">好呀 ( 👑 )</button>
+            <button id="yesBtn" onclick="agree()">要要要 ( 💗 )</button>
             <button id="noBtn" onmouseover="escape()" onclick="escape()">不要 ( ❌ )</button>
         </div>
     </div>
@@ -104,9 +104,9 @@
             noBtn.style.top = randomY + 'px';
         }
 
-        // 點擊「好呀」跳出的成功視窗
+        // 點擊「要要要」跳出的成功視窗
         function agree() {
-            alert("太棒了！那就這禮拜日不見不散囉 🥰");
+            alert("可以不要奧嘟嘟了期待見我就可以 🥰");
         }
     </script>
 
